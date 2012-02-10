@@ -36,6 +36,9 @@ if [ -n "$PKG_URL" ]; then
 
   for i in $URLS; do
     PACKAGE="$SOURCES/$1/`basename $i`"
+    if [ -n "$2" ]; then
+    	PACKAGE="$SOURCES/$1/$2"
+    fi
     STAMP="$PACKAGE.url"
     MD5SUM="$PACKAGE.md5"
 
@@ -56,7 +59,7 @@ if [ -n "$PKG_URL" ]; then
     [ "$VERBOSE" != "yes" ] && WGET_OPT=-q
 
     NBWGET="1"
-    until [ -f "$STAMP" ] || wget --passive-ftp --no-check-certificate -c $WGET_OPT -P $SOURCES/$1 $i; do
+    until [ -f "$STAMP" ] || wget --passive-ftp --no-check-certificate -c $WGET_OPT -P $SOURCES/$1 $i -O $PACKAGE; do
       NBWGET=$(($NBWGET+1))
       if [ "$NBWGET" -gt "10" ]; then
         echo -e "\nCant't get $1 sources : $i\n Try later !!"

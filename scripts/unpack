@@ -27,7 +27,11 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-$SCRIPTS/get $1
+if [ -n "$PKG_URL_TRGT" ]; then
+  $SCRIPTS/get $1 $PKG_URL_TRGT
+else
+  $SCRIPTS/get $1
+fi
 
 mkdir -p $BUILD
 

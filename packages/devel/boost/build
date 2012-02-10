@@ -39,4 +39,6 @@ $ROOT/$TOOLCHAIN/bin/bjam -d2 --toolset=gcc  \
   --with-iostreams \
   --with-system \
   --with-regex -sICU_PATH="$SYSROOT_PREFIX/usr" \
+  --with-date_time \
+  --with-program_options \
   install

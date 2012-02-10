@@ -32,6 +32,9 @@ fi
 
 for i in $PKG_URL; do
   FILE="`basename $i`"
+  if [ -n "$PKG_URL_TRGT" ]; then
+    FILE="$PKG_URL_TRGT"
+  fi 
 
   case $FILE in
   $2)
