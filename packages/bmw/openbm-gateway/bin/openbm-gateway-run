@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /etc/openbm-gateway
+
+while :
+do
+  /usr/bin/openbm-gateway -d $DEV -e $EVENTFILE -l $LOGFILE 
+done
+

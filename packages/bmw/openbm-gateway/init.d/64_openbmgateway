@@ -1,0 +1,6 @@
+# starting OpenBM-gateway
+#
+# runlevels: openelec, texmode
+
+progress "starting OpenBM-Gateway server"
+

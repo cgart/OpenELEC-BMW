@@ -1,0 +1,3 @@
+DEV=/dev/ttyUSB0
+EVENT_FILE=/usr/share/openbm-gateway/key-xbmc.event
+LOG_FILE=/tmp/openbm-gateway.log
