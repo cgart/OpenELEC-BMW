@@ -1,0 +1,20 @@
+diff -Naur speech_tools-2.1-release/config/compilers/gcc_defaults.mak speech_tools-2.1-release.patch//config/compilers/gcc_defaults.mak
+--- speech_tools-2.1-release/config/compilers/gcc_defaults.mak	2012-02-23 10:17:46.860933005 -0800
++++ speech_tools-2.1-release.patch//config/compilers/gcc_defaults.mak	2012-02-23 10:17:28.556842253 -0800
+@@ -38,11 +38,11 @@
+  ##                                                                       ##
+  ###########################################################################
+ 
+-CC=gcc
+-CXX=gcc
+-ifeq ($(OSTYPE),Darwin)
+-CXX=g++
+-endif
++#CC=gcc
++CXX=$(CC)
++#ifeq ($(OSTYPE),Darwin)
++#CXX=g++
++#endif
+ 
+ COMPILER_DESC=FSF gcc
+ COMPILER_VERSION_COMMAND=$(CXX) -v 2>&1 | tail -1 | sed -e 's/^....//'

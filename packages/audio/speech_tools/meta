@@ -1,0 +1,42 @@
+################################################################################
+#      This file is part of OpenELEC - http://www.openelec.tv
+#      Copyright (C) 2009-2011 Stephan Raue (stephan@openelec.tv)
+#
+#  This Program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2, or (at your option)
+#  any later version.
+#
+#  This Program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with OpenELEC.tv; see the file COPYING.  If not, write to
+#  the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+#  http://www.gnu.org/copyleft/gpl.html
+################################################################################
+
+PKG_NAME="speech_tools"
+PKG_VERSION="2.1-release"
+PKG_REV="2"
+PKG_ARCH="any"
+PKG_LICENSE="custom"
+PKG_SITE="http://www.cstr.ed.ac.uk"
+PKG_URL="http://www.cstr.ed.ac.uk/downloads/festival/2.1/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_DEPENDS=""
+PKG_BUILD_DEPENDS="toolchain"
+PKG_PRIORITY="optional"
+PKG_SECTION="audio"
+PKG_SHORTDESC="speech_tools: Tools for tts support"
+PKG_LONGDESC=""
+
+PKG_IS_ADDON="no"
+
+PKG_AUTORECONF="no"
+
+if [ "$ALSA_SUPPORT" = yes ]; then
+  PKG_DEPENDS="$PKG_DEPENDS alsa-lib"
+  PKG_BUILD_DEPENDS="$PKG_BUILD_DEPENDS alsa-lib"
+fi
