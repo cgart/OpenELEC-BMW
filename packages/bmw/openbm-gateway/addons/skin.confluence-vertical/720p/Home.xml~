@@ -568,12 +568,17 @@
 						<thumb>$INFO[Skin.String(Home_Custom_Back_PlayDisc_Folder)]</thumb>
 						<visible>System.HasMediaDVD</visible>
 					</item>
+					<item id="14">
+						<label>BMW Radio</label>
+						<onclick>XBMC.RunScript(script.ibus.bmw,radio)</onclick>
+						<icon>special://skin/backgrounds/radio.jpg</icon>
+						<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
+					</item>										
 					<item id="13">
 						<label>On-Board</label>
 						<onclick>XBMC.RunScript(script.ibus.bmw,obc)</onclick>
 						<icon>special://skin/backgrounds/bordcomputer.jpg</icon>
 						<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
-						<visible></visible>
 					</item>										
 					<item id="5">
 						<label>13000</label>
@@ -691,10 +696,10 @@
 			<control type="rss">
 				<description>RSS feed</description>
 				<posx>35</posx>
-				<posy>6</posy>
+				<posy>0</posy>
 				<height>35</height>
 				<width>790</width>
-				<font>font12</font>
+				<font>font13</font>
 				<urlset>1</urlset>
 				<textcolor>blue</textcolor>
 				<titlecolor>blue</titlecolor>
@@ -784,7 +789,7 @@
 			</control>
 			<control type="image">
 				<description>time background</description>
-				<posx>180r</posx>
+				<posx>190r</posx>
 				<posy>43</posy>
 				<width>180</width>
 				<height>40</height>
@@ -796,9 +801,9 @@
 			</control>
 			<control type="label">
 				<description>time label</description>
-				<posx>150r</posx>
+				<posx>170r</posx>
 				<posy>43</posy>
-				<width>140</width>
+				<width>170</width>
 				<height>30</height>
  				<align>left</align>
  				<aligny>center</aligny>

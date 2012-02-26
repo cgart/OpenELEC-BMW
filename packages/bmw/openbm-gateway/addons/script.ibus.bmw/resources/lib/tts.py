@@ -15,6 +15,7 @@ __settings__ = xbmcaddon.Addon(id='script.ibus.bmw')
 # the execution is hold while speaking
 # -----------------------------------------------
 def say(ss):
+	return # currently no TTS until we get festival running with OpenELEC
 	#xbmc.executebuiltin("XBMC.Notification(%s,%s,2000,'')"%("Settings", str(float(__settings__.getSetting( "speech.volume" )))))	
 	xbmc.executebuiltin('XBMC.SetVolume(90)')
 	xbmc.sleep(100)

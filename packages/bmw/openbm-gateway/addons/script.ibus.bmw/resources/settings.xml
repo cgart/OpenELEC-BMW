@@ -10,6 +10,9 @@
 
   <!-- BMW settings -->
   <category label="BMW IBus" id="1">  
+    <setting id="ibus.device" type="text" label="IBus Interface" default="/dev/ttyUSB0"/>
+    <setting id="ibus.eventfile" type="text" label="IBus Key-to-Event file" default="/usr/share/openbm-gateway/key-xbmc.event"/>
+    <setting id="ibus.logfile" type="text" label="IBus Interface" default="/tmp/openbm-gateway.log"/>
     <setting id="ibus.server" type="text" label="OpenBM-Gateway server" default="localhost" enable="false"/>
   </category>
 

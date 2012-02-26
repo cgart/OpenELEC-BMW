@@ -25,5 +25,4 @@
 cd $PKG_BUILD
 make CONF=Release
 
-$MAKEINSTALL
 

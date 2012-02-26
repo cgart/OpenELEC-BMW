@@ -195,33 +195,38 @@ if ( __name__ == "__main__" ):
 		openbm.midEnableEmulation()
 		openbm.setOnRadioStateChange(onRadioState)
 		openbm.setOnMessage(onMessage)
+		_connectionLost = True
 		
 		# try to connect to IBus client, repeat the retries
-		try:	
-			openbm.start()
-			_connectionLost = False
+		while (_connectionLost == True):
+			try:	
+				openbm.start()
+				_connectionLost = False
+						
+				xbmc.executebuiltin("XBMC.Notification(%s,%s,2000,%s)"%("Connected", "BMW I-Bus connected...", bmwLogoSmallImg))		
 			
-			# perform greetings and say current time
-			#xbmc.executebuiltin("XBMC.Notification(%s,%s,2000,'')"%("Settings", __settings__.getSetting( "speech.greetings")))	
-			if (__settings__.getSetting( "speech.greetings") == 'true'):
-				now = datetime.datetime.now()
-				greeting = ""
-				if (now.hour < 4):
-					greeting = 'Good night, '
-				elif (now.hour < 12):
-					greeting = 'Good morning, '
-				elif (now.hour < 18):
-					greeting = 'Good afternoon, '
-				else:
-					greeting = 'Good evening, '
-				tts.sayAsync(greeting + now.strftime("Current time is %H:%M, on %d %B"))
+			except openbm.error,e:
+				xbmc.executebuiltin("XBMC.Notification(%s,%s,2000,%s)"%("Wait for I-BUS", "BMW I-Bus not found, connect...", bmwLogoSmallImg))		
+				xbmc.sleep(2000)
+				
+				#dialog = xbmcgui.Dialog()
+				#dialog.ok("Connection to IBus failed!", str(e), "Please restart the application and the I-Bus gateway!")	
+				#raise
 			
-			xbmc.executebuiltin("XBMC.Notification(%s,%s,2000,%s)"%("Connected", "BMW I-Bus connected...", bmwLogoSmallImg))		
-			
-		except openbm.error,e:
-			dialog = xbmcgui.Dialog()
-			dialog.ok("Connection to IBus failed!", str(e), "Please restart the application and the I-Bus gateway!")	
-			raise
+		# perform greetings and say current time
+		#xbmc.executebuiltin("XBMC.Notification(%s,%s,2000,'')"%("Settings", __settings__.getSetting( "speech.greetings")))	
+		if (__settings__.getSetting( "speech.greetings") == 'true'):
+			now = datetime.datetime.now()
+			greeting = ""
+			if (now.hour < 4):
+				greeting = 'Good night, '
+			elif (now.hour < 12):
+				greeting = 'Good morning, '
+			elif (now.hour < 18):
+				greeting = 'Good afternoon, '
+			else:
+				greeting = 'Good evening, '
+			tts.sayAsync(greeting + now.strftime("Current time is %H:%M, on %d %B"))
 			
 		# update BC's time and date
 		openbm.bcSetTimeFromSystem()

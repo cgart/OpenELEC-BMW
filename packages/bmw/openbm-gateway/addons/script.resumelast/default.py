@@ -3,7 +3,8 @@ import string, time, mimetypes, re, os
 import shutil
 import xbmcaddon
 
-AUTOEXEC_LINE = "xbmc.executescript('special://home/addons/script.resumelast/observer.py')\nxbmc.executescript('special://home/addons/script.resumelast/default.py')"
+AUTOEXEC_LINE  = "xbmc.executescript('special://home/addons/script.resumelast/observer.py')"
+AUTOEXEC_2LINE = "xbmc.executescript('special://home/addons/script.resumelast/default.py')"
 DATADIR = xbmc.translatePath( "special://profile/addon_data/script.resumelast/" )
 AUTOEXEC_DIR = xbmc.translatePath( "special://profile" )
 DATAFILE = os.path.join( DATADIR, "ResumeSaverA.xml" )
@@ -194,7 +195,7 @@ class resumePlayer:
                                  return
                          lines.append(str(line))
                     fh.close()
-                    lines.append(AUTOEXEC_LINE+"\n")
+                    lines.append("\n" + AUTOEXEC_LINE + "\n" + AUTOEXEC_2LINE + "\n")
                     f = open(autoexecfile, "w")
                     f.writelines(lines)
                     f.close()
@@ -202,7 +203,8 @@ class resumePlayer:
             else:
                     f = open(autoexecfile, "w")
                     f.write("import xbmc\n")
-                    f.write(AUTOEXEC_LINE)
+                    f.write(AUTOEXEC_LINE + "\n")
+                    f.write(AUTOEXEC_2LINE + "\n")
                     f.close()
                     return
 m = resumePlayer()

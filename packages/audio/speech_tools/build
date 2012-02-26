@@ -23,20 +23,15 @@
 . config/options $1
 
 cd $PKG_BUILD
+autoconf
 ./configure --host=$TARGET_NAME \
             --build=$HOST_NAME \
             --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
-            --includedir=$SYSROOT_PREFIX/usr/include
-
-#./configure --host=$TARGET_NAME \
-#            --build=$HOST_NAME \
-#            --prefix=/usr \
-#            --sysconfdir=/etc \
-#            --localstatedir=/var \
-#            --includedir=$SYSROOT_PREFIX/usr/include
-
+            --includedir=$SYSROOT_PREFIX/usr/include \
+	    --libdir=$SYSROOT_PREFIX/usr/lib
+	    
 make
 
 $MAKEINSTALL

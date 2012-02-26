@@ -23,5 +23,18 @@
 . config/options $1
 
 mkdir -p $INSTALL/usr/bin
-  cp $PKG_BUILD/src/.libs/gateway $INSTALL/usr/bin/openbm-gateway
+  cp $PKG_BUILD/dist/Release/GNU-Linux-x86/gateway $INSTALL/usr/bin/openbm-gateway
+  cp $PKG_DIR/bin/* $INSTALL/usr/bin/
 
+mkdir -p $INSTALL/etc
+  cp $PKG_DIR/etc/* $INSTALL/etc/
+  chmod 666 $INSTALL/etc/openbm-gateway.conf
+    
+mkdir -p $INSTALL/usr/share/openbm-gateway
+  cp $PKG_BUILD/key-xbmc.event $INSTALL/usr/share/openbm-gateway/ 
+
+mkdir -p $INSTALL/usr/share/xbmc/addons
+  cp -r $PKG_DIR/addons/* $INSTALL/usr/share/xbmc/addons/
+  
+cp $PKG_DIR/Splash.png $INSTALL/usr/share/xbmc/media/Splash.png
+  
