@@ -45,14 +45,14 @@ if (len(sys.argv) <= 1):
 	__settings__.openSettings()
         
         # write values from settings to the system config files
-	f = open('/etc/openbm-gateway.conf', 'w')
+	f = open('/var/config/openbm-gateway.conf', 'w')
 	f.write('DEV=%s\n' % __settings__.getSetting("ibus.device"))
 	f.write('EVENT_FILE=%s\n' % __settings__.getSetting("ibus.eventfile"))
 	f.write('LOG_FILE=%s\n' % __settings__.getSetting("ibus.logfile"))
 	f.close()
 			
 	# try to restart openbm-gateway process
-	proc = subprocess.Popen(["pgrep", "openbm-gateway"], stdout=subprocess.PIPE) 
+	proc = subprocess.Popen(["pidof", "openbm-gateway"], stdout=subprocess.PIPE) 
 
 	# Kill process.
 	for pid in proc.stdout:

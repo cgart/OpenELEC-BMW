@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /etc/openbm-gateway.conf
+. /var/config/openbm-gateway.conf
 
 #while :
 #do

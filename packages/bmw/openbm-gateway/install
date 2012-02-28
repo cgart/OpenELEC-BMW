@@ -26,9 +26,9 @@ mkdir -p $INSTALL/usr/bin
   cp $PKG_BUILD/dist/Release/GNU-Linux-x86/gateway $INSTALL/usr/bin/openbm-gateway
   cp $PKG_DIR/bin/* $INSTALL/usr/bin/
 
-mkdir -p $INSTALL/etc
-  cp $PKG_DIR/etc/* $INSTALL/etc/
-  chmod 666 $INSTALL/etc/openbm-gateway.conf
+mkdir -p $INSTALL/var/config
+  cp $PKG_DIR/config/* $INSTALL/var/config/
+  chmod 666 $INSTALL/var/config/openbm-gateway.conf
     
 mkdir -p $INSTALL/usr/share/openbm-gateway
   cp $PKG_BUILD/key-xbmc.event $INSTALL/usr/share/openbm-gateway/ 

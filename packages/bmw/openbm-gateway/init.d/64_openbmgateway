@@ -4,3 +4,4 @@
 
 progress "starting OpenBM-Gateway server"
 
+/usr/bin/openbm-gateway-run

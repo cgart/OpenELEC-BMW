@@ -182,7 +182,7 @@ echo "#########################################################"
   echo " " >> /tmp/usb_install/syslinux.cfg
   echo "LABEL linux" >> /tmp/usb_install/syslinux.cfg
   echo "  KERNEL /KERNEL" >> /tmp/usb_install/syslinux.cfg
-  echo "  APPEND boot=UUID=$UUID installer quiet" >> /tmp/usb_install/syslinux.cfg
+  echo "  APPEND boot=UUID=$UUID installer quiet vga=792" >> /tmp/usb_install/syslinux.cfg
 
 # copy files
   echo "copying files to $PART..."
